@@ -1,0 +1,162 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: USER
+#------------------------------------------------------------
+
+CREATE TABLE USER(
+        Identifiant Int  Auto_increment  NOT NULL ,
+        User_ID     Varchar (50) NOT NULL ,
+        Password    Varchar (50) NOT NULL ,
+        Nom         Varchar (50) NOT NULL ,
+        Prenom      Varchar (50) NOT NULL
+	,CONSTRAINT USER_PK PRIMARY KEY (Identifiant)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: PROFIL
+#------------------------------------------------------------
+
+CREATE TABLE PROFIL(
+        Identifiant Int  Auto_increment  NOT NULL ,
+        Libelle     Varchar (50) NOT NULL
+	,CONSTRAINT PROFIL_PK PRIMARY KEY (Identifiant)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: METIERS
+#------------------------------------------------------------
+
+CREATE TABLE METIERS(
+        Identifiant Int  Auto_increment  NOT NULL ,
+        Libelle     Varchar (5) NOT NULL
+	,CONSTRAINT METIERS_PK PRIMARY KEY (Identifiant)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: SOUS_TACHES
+#------------------------------------------------------------
+
+CREATE TABLE SOUS_TACHES(
+        Identifiant Int  Auto_increment  NOT NULL ,
+        Libelle     Varchar (50) NOT NULL ,
+        Temps_Total Double NOT NULL ,
+        Date_Depart Date NOT NULL ,
+        Date_Fin    Date NOT NULL ,
+        Commentaire Text NOT NULL
+	,CONSTRAINT SOUS_TACHES_PK PRIMARY KEY (Identifiant)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: FICHIERS
+#------------------------------------------------------------
+
+CREATE TABLE FICHIERS(
+        Identifiant Int  Auto_increment  NOT NULL ,
+        Libelle     Varchar (50) NOT NULL
+	,CONSTRAINT FICHIERS_PK PRIMARY KEY (Identifiant)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: TACHES
+#------------------------------------------------------------
+
+CREATE TABLE TACHES(
+        Identifiant Int  Auto_increment  NOT NULL ,
+        Libelle     Varchar (50) NOT NULL
+	,CONSTRAINT TACHES_PK PRIMARY KEY (Identifiant)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: ACTIVITES
+#------------------------------------------------------------
+
+CREATE TABLE ACTIVITES(
+        Identifiant Int  Auto_increment  NOT NULL ,
+        Libelle     Varchar (50) NOT NULL
+	,CONSTRAINT ACTIVITES_PK PRIMARY KEY (Identifiant)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: PROFIL_METIER
+#------------------------------------------------------------
+
+CREATE TABLE PROFIL_METIER(
+        Identifiant         Int NOT NULL ,
+        Identifiant_METIERS Int NOT NULL
+	,CONSTRAINT PROFIL_METIER_PK PRIMARY KEY (Identifiant,Identifiant_METIERS)
+
+	,CONSTRAINT PROFIL_METIER_PROFIL_FK FOREIGN KEY (Identifiant) REFERENCES PROFIL(Identifiant)
+	,CONSTRAINT PROFIL_METIER_METIERS0_FK FOREIGN KEY (Identifiant_METIERS) REFERENCES METIERS(Identifiant)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: USER_PROFIL
+#------------------------------------------------------------
+
+CREATE TABLE USER_PROFIL(
+        Identifiant        Int NOT NULL ,
+        Identifiant_PROFIL Int NOT NULL
+	,CONSTRAINT USER_PROFIL_PK PRIMARY KEY (Identifiant,Identifiant_PROFIL)
+
+	,CONSTRAINT USER_PROFIL_USER_FK FOREIGN KEY (Identifiant) REFERENCES USER(Identifiant)
+	,CONSTRAINT USER_PROFIL_PROFIL0_FK FOREIGN KEY (Identifiant_PROFIL) REFERENCES PROFIL(Identifiant)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: FICHIERS_SOUS_TACHES
+#------------------------------------------------------------
+
+CREATE TABLE FICHIERS_SOUS_TACHES(
+        Identifiant             Int NOT NULL ,
+        Identifiant_SOUS_TACHES Int NOT NULL
+	,CONSTRAINT FICHIERS_SOUS_TACHES_PK PRIMARY KEY (Identifiant,Identifiant_SOUS_TACHES)
+
+	,CONSTRAINT FICHIERS_SOUS_TACHES_FICHIERS_FK FOREIGN KEY (Identifiant) REFERENCES FICHIERS(Identifiant)
+	,CONSTRAINT FICHIERS_SOUS_TACHES_SOUS_TACHES0_FK FOREIGN KEY (Identifiant_SOUS_TACHES) REFERENCES SOUS_TACHES(Identifiant)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: USERS_SOUS_TACHES
+#------------------------------------------------------------
+
+CREATE TABLE USERS_SOUS_TACHES(
+        Identifiant      Int NOT NULL ,
+        Identifiant_USER Int NOT NULL ,
+        Temps_Travail    Double NOT NULL ,
+        Commentaire_user Text NOT NULL
+	,CONSTRAINT USERS_SOUS_TACHES_PK PRIMARY KEY (Identifiant,Identifiant_USER)
+
+	,CONSTRAINT USERS_SOUS_TACHES_SOUS_TACHES_FK FOREIGN KEY (Identifiant) REFERENCES SOUS_TACHES(Identifiant)
+	,CONSTRAINT USERS_SOUS_TACHES_USER0_FK FOREIGN KEY (Identifiant_USER) REFERENCES USER(Identifiant)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: SOUS_TACHES_TACHES
+#------------------------------------------------------------
+
+CREATE TABLE SOUS_TACHES_TACHES(
+        Identifiant             Int NOT NULL ,
+        Identifiant_SOUS_TACHES Int NOT NULL
+	,CONSTRAINT SOUS_TACHES_TACHES_PK PRIMARY KEY (Identifiant,Identifiant_SOUS_TACHES)
+
+	,CONSTRAINT SOUS_TACHES_TACHES_TACHES_FK FOREIGN KEY (Identifiant) REFERENCES TACHES(Identifiant)
+	,CONSTRAINT SOUS_TACHES_TACHES_SOUS_TACHES0_FK FOREIGN KEY (Identifiant_SOUS_TACHES) REFERENCES SOUS_TACHES(Identifiant)
+)ENGINE=InnoDB;
+
+
+
