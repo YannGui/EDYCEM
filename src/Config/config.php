@@ -20,9 +20,9 @@ class config
 
 	public static $PARAM_DBNAME = 'edycem';
 
-	public static $PARAM_DBUSER = 'root';
+	public static $PARAM_DBUSER = 'gabin';
 
-	public static $PARAM_DBPWD = '';
+	public static $PARAM_DBPWD = 'Edycem04!';
 
 	public static function GetMENUSTYLE()
 	{
