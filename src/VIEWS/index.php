@@ -12,11 +12,11 @@ if ($valueIdForTestIndex != 0){
 }
 
 require_once __DIR__.'/../Config/config.php';
-require_once __DIR__.'/PageBase/PageBaseA.php';
+/*require_once __DIR__.'/PageBase/PageBaseA.php';*/
 
 
 echo config::GetMENUSTYLE();
-echo '<div class="top-bar"><Center><H1 style="margin-top:7px; color:#2da2c8">APPLICATION EDYCEM</H1></Center></div>'  ?>
+echo '<center><img src="images/EDYCEM_GROUPE_V_RVB.png" alt="logo de d\'Edycem" width="300" height="250" class="logo" ></center>'  ?>
 
 
 <head>
