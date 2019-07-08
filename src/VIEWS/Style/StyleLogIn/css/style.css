@@ -30,9 +30,9 @@ form:before {
   left: 0;
   width: 70px;
   height: 10px;
-  background: #c62828;
-  -webkit-box-shadow: 42px 0 0 0 #EF6C00, 91px 0 0 0 #F9A825, 119px 0 0 0 #2E7D32, 175px 0 0 0 #0277BD, 224px 0 0 0 #AD1457, 280px 0 0 0 #4527A0;
-          box-shadow: 42px 0 0 0 #EF6C00, 91px 0 0 0 #F9A825, 119px 0 0 0 #2E7D32, 175px 0 0 0 #0277BD, 224px 0 0 0 #AD1457, 280px 0 0 0 #4527A0;
+  background: #003e6f;
+  -webkit-box-shadow: 42px 0 0 0 #003e6f, 91px 0 0 0 #003e6f, 119px 0 0 0 #003e6f, 175px 0 0 0 #003e6f, 224px 0 0 0 #003e6f, 280px 0 0 0 #003e6f;
+          box-shadow: 42px 0 0 0 #003e6f, 91px 0 0 0 #003e6f, 119px 0 0 0 #003e6f, 175px 0 0 0 #003e6f, 224px 0 0 0 #003e6f, 280px 0 0 0 #003e6f;
 }
 
 input, button {
@@ -53,13 +53,13 @@ button {
   text-transform: uppercase;
   letter-spacing: 3px;
   color: #fff;
-  background: #2fcd72;
+  background: #003e6f;
   -webkit-transition: .25s;
   transition: .25s;
-  -webkit-box-shadow: 0 5px 0 0 #27ae60;
-          box-shadow: 0 5px 0 0 #27ae60;
+  -webkit-box-shadow: 0 5px 0 0 #003e6f;
+          box-shadow: 0 5px 0 0 #003e6f;
 }
 button:hover {
-  background: #27ae60;
+  background: #003e6f;
   cursor: pointer;
 }
